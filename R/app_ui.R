@@ -3,14 +3,75 @@
 #' @param request Internal parameter for `{shiny}`. 
 #'     DO NOT REMOVE.
 #' @import shiny
+#' @import shinyTime
 #' @noRd
-app_ui <- function(request) {
+app_ui <- function() {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
-    # List the first level UI elements here 
+    # List the first level UI elements here
     fluidPage(
-      h1("golembash")
+      # App title ----
+      titlePanel("HPC bash deployment scripts"),
+      
+      # Sidebar layout with a input and output definitions ----
+      sidebarLayout(
+        
+        # Sidebar panel for inputs ----
+        sidebarPanel(
+          
+
+          # Input: jobname
+          textInput(inputId =  "jobname", label = "Enter your job name", value = "my_job",
+                    width = NULL, placeholder = NULL),
+          
+          # Input: task per node
+          numericInput("task_per_node", "Task per node:", 1, min = 1, max = 8),
+          
+          # cpu
+          numericInput("cpu_per_taks", "CPU per task:", 1, min = 1, max = 8),
+
+          
+          # time
+        
+          # timeInput("time_input2", "Enter time (5 minute steps)", value = strptime("12:34:56", "%T"), minute.steps = 5),
+          
+          # partition
+          # Input: Selector for choosing dataset ----
+          selectInput(
+            inputId = "partition",
+            label = "Choose the possible partitions for your job to be run on:",
+            choices = c("debug-cpu" ,"public-cpu","public-bigmem","shared-cpu","shared-bigmem"), selected = "debug-cpu"
+          ),
+          
+          
+          #mail type
+          textInput(inputId =  "mail_type", label = "Specify the type of emails you want to receive", value = "ALL",
+                    width = NULL, placeholder = NULL),
+          
+          # mail user
+          textInput(inputId =  "mail_user", label = "Enter your Email", value = "name.surname@unige.ch",
+                    width = NULL, placeholder = NULL),
+          
+          # file name
+          textInput(inputId =  "file_name", label = "Enter the name of the R script", value = "my_R_script.R",
+                    width = NULL, placeholder = NULL),
+          
+          # report name
+          textInput(inputId =  "report_name", label = "Enter the name of .Rout report", value = "my_report.Rout",
+                    width = NULL, placeholder = NULL),
+
+        ),
+        
+        # Main panel for displaying outputs ----
+        mainPanel(
+          
+          # Output: Verbatim text for data summary ----
+          verbatimTextOutput("summary"),
+          
+
+        )
+      )
     )
   )
 }
