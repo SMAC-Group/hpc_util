@@ -62,7 +62,7 @@ app_ui <- function() {
                       multiple = T),
           
           pickerInput("r_version_2","R version", 
-                      choices=c("3.2.3", "3.3.1", "3.3,2", "3.5.1", "3.6.0", "3.6.2", "4.0.0"), selected = "3.6.2", 
+                      choices=c("3.6.0", "3.6.2", "4.0.0"), selected = "4.0.0", 
                       options = list(`actions-box` = TRUE),
                       multiple = F),
 
@@ -75,7 +75,7 @@ app_ui <- function() {
                     width = NULL, placeholder = NULL),
           
          
-
+     
         ),
         
         # Main panel for displaying outputs ----
