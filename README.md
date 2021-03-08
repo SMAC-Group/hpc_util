@@ -2,7 +2,7 @@
 
 Provide a simple GUI to generate `.sh` scripts to launch tasks on Baobab and Yggdrasil HPC cluster ([HPC@UNIGE](https://www.unige.ch/eresearch/en/services/hpc/)) for researchers at the University of Geneva, Switzerland. 
 
-![:scale 30%](img/hpc_util_screenshort.png)
+![:scale 10%](img/hpc_util_screenshort.png)
 
 ## Installation and use
 
