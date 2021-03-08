@@ -11,7 +11,7 @@ You can access and use the application directly on your browser via [Shinyapp.io
 
 ### Installing the package with GitHub
 
-First install the **devtools** package. Then **swag** with the following
+First install the **remotes** package. Then **golembash** with the following
 code:
 
 ``` r
