@@ -7,7 +7,7 @@ Provide a simple GUI to generate `.sh` scripts to launch tasks on Baobab and Ygg
 ## Installation and use
 
 ### Web access
-You can access and use the application directly on your browser via Shinyapp.io. Find the app [here](https://data-analytics-lab.shinyapps.io/golembash/).
+You can access and use the application directly on your browser via [Shinyapp.io](https://www.shinyapps.io/#). Find the app [here](https://data-analytics-lab.shinyapps.io/golembash/).
 
 ### Installing the package with GitHub
 
