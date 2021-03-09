@@ -20,6 +20,6 @@ code:
 
 remotes::install_github("SMAC-Group/hpc_util")
 
-library(golembash) # load the new package
-run_app() # run the app
+library(hpc_util) # load the new package
+hpc_util::run_app() # run the app
 ```
