@@ -1,4 +1,4 @@
-# golembash
+# hpc_util
 
 Provide a simple GUI to generate `.sh` scripts to launch tasks on Baobab and Yggdrasil HPC cluster ([HPC@UNIGE](https://www.unige.ch/eresearch/en/services/hpc/)) for researchers at the University of Geneva, Switzerland. 
 
@@ -11,14 +11,14 @@ You can access and use the application directly on your browser via [Shinyapp.io
 
 ### Installing the package with GitHub and `R`
 
-In your `R` console, first install the **remotes** package. Then **golembash** with the following
+In your `R` console, first install the **remotes** package. Then **hpc_util** with the following
 code:
 
 ``` r
 ## if not installed
 ## install.packages("remotes")
 
-remotes::install_github("SMAC-Group/golembash")
+remotes::install_github("SMAC-Group/hpc_util")
 
 library(golembash) # load the new package
 run_app() # run the app
