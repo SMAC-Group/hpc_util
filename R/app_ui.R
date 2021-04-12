@@ -17,7 +17,7 @@ app_ui <- function() {
       theme = shinytheme("slate"),
       
       # App title ----
-      titlePanel("HPC bash deployment scripts"),
+      titlePanel("HPC sbatch deployment scripts"),
       
       # Sidebar layout with a input and output definitions ----
       sidebarLayout(
@@ -46,13 +46,14 @@ app_ui <- function() {
           # partition
 
           pickerInput("partition_2","Partitions", 
-                      choices=c("debug-cpu" ,"public-cpu","public-bigmem","shared-cpu","shared-bigmem"), selected = c("debug-cpu" ,"public-cpu","public-bigmem","shared-cpu","shared-bigmem"), 
+                      choices=c("debug-cpu" ,"public-cpu","public-bigmem","shared-cpu","shared-bigmem"), 
+                      selected = c("public-cpu"), 
                       options = list(`actions-box` = TRUE),
                       multiple = T),
         
           
           # mail user
-          textInput(inputId =  "mail_user", label = "Email", value = "name.surname@unige.ch",
+          textInput(inputId =  "mail_user", label = "Email (only included if different than default)", value = "name.surname@unige.ch",
                     width = NULL, placeholder = NULL),
           
 

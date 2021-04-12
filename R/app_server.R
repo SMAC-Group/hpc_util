@@ -28,18 +28,37 @@ app_server <- function( input, output, session ) {
     }else if(input$r_version_2 == "4.0.0"){
       load_cmd = paste("module load GCC/9.3.0 OpenMPI/4.0.3 R/", input$r_version_2, sep = "")    }  
     
-    # print bash script
-    paste("#!/bin/bash", 
-          paste("#SBATCH --job-name=", input$jobname, sep = ""),
-          paste("#SBATCH --ntasks-per-node=", input$task_per_node, sep = ""),
-          paste("#SBATCH --cpus-per-task=", input$cpu_per_taks, sep = ""),
-          paste("#SBATCH --time=", time, sep = ""),
-          paste("#SBATCH --partition=", all_partitions_2, sep = ""),
-          paste("#SBATCH --mail-user=", input$mail_user, sep = ""),
-          paste("#SBATCH --mail-type=", all_mail_type, sep = ""),
-          load_cmd,
-          paste("srun R CMD BATCH ", input$file_name, input$report_name),
-          sep = "\n")  
+    # mail user
+    # show email if different then default
+    if(input$mail_user !="name.surname@unige.ch"){
+      # print bash script
+      paste("#!/bin/bash", 
+            paste("#SBATCH --job-name=", input$jobname, sep = ""),
+            paste("#SBATCH --ntasks-per-node=", input$task_per_node, sep = ""),
+            paste("#SBATCH --cpus-per-task=", input$cpu_per_taks, sep = ""),
+            paste("#SBATCH --time=", time, sep = ""),
+            paste("#SBATCH --partition=", all_partitions_2, sep = ""),
+            paste("#SBATCH --mail-user=", input$mail_user, sep = ""),
+            paste("#SBATCH --mail-type=", all_mail_type, sep = ""),
+            load_cmd,
+            paste("srun R CMD BATCH ", input$file_name, input$report_name),
+            sep = "\n")  
+      # do not show email if not different then default
+    }else if(input$mail_user == "name.surname@unige.ch"){
+      # print bash script
+      paste("#!/bin/bash", 
+            paste("#SBATCH --job-name=", input$jobname, sep = ""),
+            paste("#SBATCH --ntasks-per-node=", input$task_per_node, sep = ""),
+            paste("#SBATCH --cpus-per-task=", input$cpu_per_taks, sep = ""),
+            paste("#SBATCH --time=", time, sep = ""),
+            paste("#SBATCH --partition=", all_partitions_2, sep = ""),
+            paste("#SBATCH --mail-type=", all_mail_type, sep = ""),
+            load_cmd,
+            paste("srun R CMD BATCH ", input$file_name, input$report_name),
+            sep = "\n")  
+    }
+    
+
     
   })
   
