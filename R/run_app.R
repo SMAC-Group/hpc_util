@@ -5,6 +5,7 @@
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
+#' @importFrom pkgload load_all
 run_app <- function(
   ...
 ) {

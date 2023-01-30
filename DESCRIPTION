@@ -1,11 +1,11 @@
-Package: golembash
+Package: hpcutil
 Title: An Amazing Shiny App
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "firstname",
-           family = "lastname",
+    person(given = "Lionel",
+           family = "Voirol",
            role = c("aut", "cre"),
-           email = "your@email.com")
+           email = "lionelvoirol@hotmail.com")
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
@@ -18,4 +18,4 @@ Imports:
     pkgload
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

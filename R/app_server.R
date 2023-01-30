@@ -26,13 +26,13 @@ app_server <- function( input, output, session ) {
     }else if(input$r_version_2 == "3.6.2"){
       load_cmd = paste("module load GCC/8.3.0 OpenMPI/3.1.4 R/", input$r_version_2, sep = "")
     }else if(input$r_version_2 == "4.0.0"){
-      load_cmd = paste("module load GCC/9.3.0 OpenMPI/4.0.3 R/", input$r_version_2, sep = "")    }  
-    
-    # mail user
+      load_cmd = paste("module load GCC/9.3.0 OpenMPI/4.0.3 R/", input$r_version_2, sep = "")    }
+
+
     # show email if different then default
     if(input$mail_user !="name.surname@unige.ch"){
       # print bash script
-      paste("#!/bin/bash", 
+      paste("#!/bin/bash",
             paste("#SBATCH --job-name=", input$jobname, sep = ""),
             paste("#SBATCH --ntasks-per-node=", input$task_per_node, sep = ""),
             paste("#SBATCH --cpus-per-task=", input$cpu_per_taks, sep = ""),
@@ -42,11 +42,11 @@ app_server <- function( input, output, session ) {
             paste("#SBATCH --mail-type=", all_mail_type, sep = ""),
             load_cmd,
             paste("srun R CMD BATCH ", input$file_name, input$report_name),
-            sep = "\n")  
+            sep = "\n")
       # do not show email if not different then default
     }else if(input$mail_user == "name.surname@unige.ch"){
       # print bash script
-      paste("#!/bin/bash", 
+      paste("#!/bin/bash",
             paste("#SBATCH --job-name=", input$jobname, sep = ""),
             paste("#SBATCH --ntasks-per-node=", input$task_per_node, sep = ""),
             paste("#SBATCH --cpus-per-task=", input$cpu_per_taks, sep = ""),
@@ -55,7 +55,7 @@ app_server <- function( input, output, session ) {
             paste("#SBATCH --mail-type=", all_mail_type, sep = ""),
             load_cmd,
             paste("srun R CMD BATCH ", input$file_name, input$report_name),
-            sep = "\n")  
+            sep = "\n")
     }
     
 
@@ -72,11 +72,13 @@ app_server <- function( input, output, session ) {
   
   
   # # Add clipboard buttons
+  
   output$clip <- renderUI({
-    
-    rclipButton("clipbtn", "Copy ", clipText = sh_script(), icon("clipboard"))
-    
+    rclipboard::rclipButton("clipbtn", "Copy text", as.character(sh_script()), icon = icon("copy"))
   })
+  
+  
+
   
 
 }
