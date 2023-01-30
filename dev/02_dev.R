@@ -45,7 +45,7 @@ usethis::use_test( "app" )
 # Documentation
 
 ## Vignette ----
-usethis::use_vignette("golembash")
+usethis::use_vignette("hpcutil")
 devtools::build_vignettes()
 
 ## Code coverage ----
